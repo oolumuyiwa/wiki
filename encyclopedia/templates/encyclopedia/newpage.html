@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Create New Page</title>
+        <style>
+            html{
+                background: beige;
+                padding: 20px;
+            }
+            #id_entryName{
+                display: block;
+                width: 300px;
+                margin-bottom: 40px;
+                height: 30px;
+            }
+            #id_entryContent{
+                display: block;
+                width: 900px;
+                height: 250px;
+                margin-bottom: 40px;
+            }
+            
+            ul li{
+                list-style: none;
+                color: red;
+                font-size: 18px; 
+            }
+
+        </style>
+    </head>
+    <body>
+        <h1> Create New Page</h1>
+        <form action="{% url 'newPage' %}" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Save Page">
+        </form>
+        {% if messages %}
+        <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+</ul>
+{% endif %}
+
+    </body>
+</html>

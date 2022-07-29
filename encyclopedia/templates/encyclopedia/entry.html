@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{{ entryName }}</title>
+    </head>
+    <body>
+        {{ entry_content | safe}}
+        <a href="{% url 'editEntry' editEntryName=entryName %}">Edit Page</a>
+    </body>
+</html>
